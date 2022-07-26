@@ -29,6 +29,12 @@ const pHelmet = promisify(helmet({
 }));
 
 app.use(async (ctx, next) => {
+  console.log("000:"+ctx.request.method);
+  console.log("111:"+ctx.request['url']);
+  await next();
+});
+
+app.use(async (ctx, next) => {
   const origSecure = ctx.req.secure;
   ctx.req.secure = ctx.request.secure;
   await pHelmet(ctx.req, ctx.res);
