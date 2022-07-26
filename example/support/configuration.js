@@ -1,11 +1,12 @@
 module.exports = {
   clients: [
-    // {
-    //   client_id: 'oidcCLIENT',
-    //   client_secret: '...',
-    //   grant_types: ['refresh_token', 'authorization_code'],
-    //   redirect_uris: ['http://sso-client.dev/providers/7/open_id', 'http://sso-client.dev/providers/8/open_id'],
-    // }
+    {
+      client_id: 'algorigo',
+      client_secret: 'algorigo',
+      grant_types: ['refresh_token', 'authorization_code'],
+      redirect_uris: ['https://duobackonstandalone.auth.ap-northeast-2.amazoncognito.com/oauth2/idpresponse', 'https://local.algorigo.com'],
+      scopes: ['openid', 'email'],
+    }
   ],
   interactions: {
     url(ctx, interaction) { // eslint-disable-line no-unused-vars

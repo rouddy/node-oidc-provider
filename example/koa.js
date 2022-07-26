@@ -14,7 +14,7 @@ const Account = require('./support/account');
 const configuration = require('./support/configuration');
 const routes = require('./routes/koa');
 
-const { PORT = 3000, ISSUER = `http://localhost:${PORT}` } = process.env;
+const { PORT = 443, ISSUER = "https://local.algorigo.com" } = process.env;
 configuration.findAccount = Account.findAccount;
 
 const app = new Koa();
