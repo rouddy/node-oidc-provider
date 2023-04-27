@@ -26,6 +26,7 @@ module.exports = (provider) => {
   const { constructor: { errors: { SessionNotFound } } } = provider;
 
   router.use(async (ctx, next) => {
+    console.log("!!! 11111:"+JSON.stringify(ctx.request));
     ctx.set('cache-control', 'no-store');
     try {
       await next();

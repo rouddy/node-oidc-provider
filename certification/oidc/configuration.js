@@ -24,12 +24,12 @@ const tokenEndpointAuthMethods = [
 module.exports = {
   clients: [
     {
-      client_id: 'dpop-heroku',
+      client_id: 'algorigo',
       token_endpoint_auth_method: 'none',
-      scope: 'openid offline_access',
-      grant_types: ['authorization_code', 'refresh_token'],
-      response_types: ['code'],
-      redirect_uris: ['https://murmuring-journey-60982.herokuapp.com/cb'],
+      client_secret: 'algorigo',
+      grant_types: ['refresh_token', 'authorization_code'],
+      redirect_uris: ['https://duobackonstandalone.auth.ap-northeast-2.amazoncognito.com/oauth2/idpresponse', 'https://local.algorigo.com'],
+      scopes: ['openid', 'email'],
     },
   ],
   interactions: {

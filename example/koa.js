@@ -78,6 +78,19 @@ let server;
 
   const provider = new Provider(ISSUER, { adapter, ...configuration });
 
+  if (true) {
+    const openid = require('openid-client'); // eslint-disable-line global-require, import/no-unresolved
+    const google = await openid.Issuer.discover('https://accounts.google.com/.well-known/openid-configuration');
+    const googleClient = new google.Client({
+      client_id: '190468184803-5s1sbdcubpr5telou8gf9hk1f860i148.apps.googleusercontent.com',
+      client_secret: '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',
+      response_types: ['id_token'],
+      redirect_uris: [`${ISSUER}/interaction/callback/google`],
+      grant_types: ['implicit'],
+    });
+    provider.app.context.google = googleClient;
+  }
+
   app.use(routes(provider).routes());
   app.use(mount(provider.app));
   server = app.listen(PORT, () => {
